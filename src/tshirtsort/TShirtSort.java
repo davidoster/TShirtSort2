@@ -5,7 +5,10 @@
  */
 package tshirtsort;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import models.RandomTShirt;
 import sorting.BubbleSort;
 import sorting.BucketSort;
 import sorting.QuickSort;
@@ -29,15 +32,24 @@ public class TShirtSort {
         BubbleSort bs = new BubbleSort();
         BucketSort bus = new BucketSort();
         
-        int[] qsArray = myArray.clone(); //Arrays.copyOf(myArray, myArray.length);
-        doIntQuickSort(qs, qsArray, 0, qsArray.length - 1);
+//        int[] qsArray = myArray.clone(); //Arrays.copyOf(myArray, myArray.length);
+//        doIntQuickSort(qs, qsArray, 0, qsArray.length - 1);
+//        
+//        int[] bsArray = myArray.clone(); Arrays.copyOf(myArray, myArray.length);
+//        doIntBubbleSort(bs, bsArray);
+//        
+//        int[] busArray = myArray.clone();
+//        doIntBucketSort(bus, busArray);
         
-        int[] bsArray = myArray.clone(); Arrays.copyOf(myArray, myArray.length);
-        doIntBubbleSort(bs, bsArray);
-        
-        int[] busArray = myArray.clone();
-        doIntBucketSort(bus, busArray);
-        
+        RandomTShirt rTShirt1 = new RandomTShirt();
+        List<RandomTShirt> randomTShirts = new ArrayList<>();
+        for(int i = 0; i < 40; i++) {
+            randomTShirts.add(new RandomTShirt());
+        }
+        for (RandomTShirt randomTShirt : randomTShirts) {
+            System.out.println(randomTShirt);
+        }
+//        System.out.println(randomTShirts);
         
     }
     
