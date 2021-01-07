@@ -7,11 +7,14 @@ package tshirtsort;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import models.RandomTShirt;
 import sorting.BubbleSort;
 import sorting.BucketSort;
 import sorting.QuickSort;
+import sorting.QuickSortRandomTShirt;
 
 /**
  *
@@ -31,6 +34,7 @@ public class TShirtSort {
         QuickSort qs = new QuickSort();
         BubbleSort bs = new BubbleSort();
         BucketSort bus = new BucketSort();
+        QuickSortRandomTShirt qsRand = new QuickSortRandomTShirt();
         
 //        int[] qsArray = myArray.clone(); //Arrays.copyOf(myArray, myArray.length);
 //        doIntQuickSort(qs, qsArray, 0, qsArray.length - 1);
@@ -41,15 +45,40 @@ public class TShirtSort {
 //        int[] busArray = myArray.clone();
 //        doIntBucketSort(bus, busArray);
         
-        RandomTShirt rTShirt1 = new RandomTShirt();
+        //RandomTShirt rTShirt1 = new RandomTShirt();
         List<RandomTShirt> randomTShirts = new ArrayList<>();
-        for(int i = 0; i < 40; i++) {
+        for(int i = 0; i < 4; i++) {
             randomTShirts.add(new RandomTShirt());
         }
+        System.out.println("----UnSorted------");
         for (RandomTShirt randomTShirt : randomTShirts) {
             System.out.println(randomTShirt);
         }
-//        System.out.println(randomTShirts);
+        
+        // RandomQS
+        List<RandomTShirt> randomTShirts2 = new ArrayList<>(randomTShirts);
+        qsRand.sort(randomTShirts2, 0, randomTShirts2.size()-1, true, 2);
+        System.out.println("------Sorted------");
+        for (RandomTShirt randomTShirt : randomTShirts2) {
+            System.out.println(randomTShirt);
+        }
+        
+        // Comparator
+        List<RandomTShirt> randomTShirts3 = new ArrayList<>(randomTShirts);
+        Collections.sort(randomTShirts3.sort(new RandomTShirt()));
+        
+        
+        
+        /*
+        1. Size ASC QS, BS, BUS
+            a) change/add QS from int[] -> RandomTShirt[] or List<RandomTShirt>
+            b) int[] arr from Size of List<RandomTShirt> randTS
+                e.g. arr[0] <--- randTS.get(0) XXXXX - WRONG (wrong indexing)
+                     arr[0] <-> arr[4] ERRRRRRRROR
+            c) Comparable, Comparator
+        
+        
+        */
         
     }
     
